@@ -1,0 +1,35 @@
+.myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-left:1vh;
+    border:1px;
+    border-color: #000;
+  }
+  .myUL li a {
+    border: 1px solid #2b3553; /* Add a border to all links */
+    margin-top:1px;
+    height:4vh;
+    width:100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color:#1d253b; /* Grey background color */
+    display: block; /* Make it into a block element to fill the whole list */
+    border-radius:5px;
+  }  
+  .myUL li:focus{
+    border: 1px solid #fff;
+  }
+  
+  .myUL li a:hover:not(.header) {
+    color:#fff;
+  }
+.izvuciStatistiku{
+  background:#00aa00;
+  color: #ffffff;
+}
+.izvuciStatistiku:hover{
+  background:#00aa00;
+  color:#ffffff;
+}

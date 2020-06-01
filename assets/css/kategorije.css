@@ -1,0 +1,126 @@
+.tree, .tree ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    
+}
+.tree ul{
+    margin-left:1em;
+    position:relative;
+}
+.tree ul ul{
+    margin-left:.5em;
+    
+}
+.tree ul:before{
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    /*border-left:1px white solid;*/
+    margin-left:5px;
+}
+.tree li{
+    margin:5px 0px 0px 5px ;
+    padding:0 1em;
+    line-height:2em;
+    color:rgb(52, 154, 255);
+    font-weight:300;
+    position:relative;
+    font-size:14px;
+    margin-left:4px;
+}
+.tree li:hover{
+    color:rgb(79, 206, 245);
+}
+.tree ul li:before{
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0;
+    margin-left:-10px;
+}
+.tree ul li:last-child:before{
+    background:transparent;
+    height:auto;
+    top:1em;
+    bottom:0;
+    
+}
+.indicator{
+    margin-top:-6px;
+    margin-right:12px;
+
+}
+.tree li a{
+    text-decoration:none;
+    color:rgb(52, 154, 255);
+    font-size:18px;
+}
+.tree li a:hover{
+    text-decoration:none;
+    color:rgb(79, 206, 245);
+}
+.tree li button, .tree li button:active, .tree li button:focus{
+    text-decoration:none;
+    color:rgb(52, 154, 255);
+    border:none;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    outline:0;   
+}
+.box{
+    margin-top:3vh;
+}
+.categoryDeleteButton{
+    margin-left:6px!important;
+    color:red!important;
+    background-color: transparent!important;
+}
+.categoryDeleteButton:hover, .categoryDeleteButton:focus{
+    color:lightcoral!important;
+    background-color:transparent!important;
+    cursor: pointer;
+}
+.myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-left:1vh;
+    border:1px;
+    border-color: #000;
+  }
+.myUL li a {
+    border: 1px solid #2b3553; /* Add a border to all links */
+    margin-top:1px;
+    height:4vh;
+    width:100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color:#1d253b; /* Grey background color */
+    display: block; /* Make it into a block element to fill the whole list */
+    border-radius:5px;
+  }  
+  
+  
+.myUL li a:hover:not(.header) {
+    color:#fff;
+}
+.spasiKategoriju{
+    background:#00dd00;
+    color: #ffffff;
+  }
+.spasiKategoriju:hover{
+    background:#00aa00;
+    color:#ffffff;
+}

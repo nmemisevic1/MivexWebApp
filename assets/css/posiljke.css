@@ -1,0 +1,9 @@
+.copy{
+    color:rgb(119, 253, 141)!important;
+    background:transparent;
+}
+.copy:hover{
+    color:white!important;
+    background:transparent;
+    cursor:pointer;
+}

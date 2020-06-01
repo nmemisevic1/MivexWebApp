@@ -1,0 +1,40 @@
+.itemBox{
+    height:10%;
+    width:100%;
+}
+.incrementer{
+    color:#FFF;
+    background-color:purple;
+    display: inline-block;
+    
+    text-align:center;
+}
+.itemBoxButton{
+    width:6.66666vw;
+    height:4.1322vh;
+    border-width: 2px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    margin: 4px 1px;
+    border-radius: 0.4285rem;
+    cursor: pointer;
+    background: #344675;
+    background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675);
+    background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675);
+    background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675);
+    background-image: linear-gradient(to bottom left, #344675, #263148, #344675);
+    background-size: 210% 210%;
+    background-position: top right;
+    background-color: #344675;
+    transition: all 0.15s ease;
+    box-shadow: none;
+    color: #ffffff;
+}
+.itemBoxInput{
+    border-radius:0.4285rem;
+    border:none;
+    background-color: #344675;
+    color:#ffffff;
+    width:6.66vw;
+}

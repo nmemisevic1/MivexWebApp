@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+    Dashboard | Mivex
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="../assets/css/dashboard.css" rel="stylesheet" />
+</head>
+
+<body class="" onload="menuPriviligesAdder('statistika');changeForm(1);updateujGrafove();ucitajKategorijeUListu(); ucitajBazeTrenutnogKorisnika()">
+  <div class="wrapper">
+    <div class="sidebar" data="blue">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="javascript:void(0)" class="simple-text logo-mini hidden-md-up">
+            MS
+          </a>
+          <a href="javascript:void(0)" class="simple-text logo-normal hidden-sm-down">
+            MivexShop
+          </a>
+        </div>
+        <ul class="nav" id="meniNavigacija">
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" data="blue">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+              <li class="">
+                <div class="form-group">
+                  <p style="color:rgb(76, 85, 85);">Aktivna baza:<span><select class="form-control"
+                        style="margin-left:0px;" id="aktivnaBaza">
+
+                      </select></span></p>
+
+                </div>
+
+
+
+              </li>
+              <li class="dropdown nav-item">
+                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <div class="notification d-none d-lg-block d-xl-block"></div>
+                  <i class="tim-icons icon-sound-wave"></i>
+                  <p class="d-lg-none">
+                    Notifications
+                  </p>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar" id="notifikacijaNotifikacije">
+
+                </ul>
+              </li>
+              <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <div class="photo">
+                    <img src="../assets/img/anime3.png" alt="Profile Photo">
+                  </div>
+                  <b class="caret d-none d-lg-block d-xl-block"></b>
+                  <p class="d-lg-none">
+                    Log out
+                  </p>
+                </a>
+                <ul class="dropdown-menu dropdown-navbar">
+                  <li class="nav-link">
+                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
+                  </li>
+                  <li class="dropdown-divider"></li>
+                  <li class="nav-link">
+                    <a href="javascript:void(0)" class="nav-item dropdown-item" onclick="logOut()">Log out</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="separator d-lg-none"></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h5 class="card-category">Ukupno prodanih artikala</h5>
+                    <h2 class="card-title">Prodaja</h2>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                      <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                        <input type="radio" name="options" checked>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Ukupna zarada</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-single-02"></i>
+                        </span>
+                      </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="1">
+                        <input type="radio" class="d-none d-sm-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Ukupno prodanih</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-gift-2"></i>
+                        </span>
+                      </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="2">
+                        <input type="radio" class="d-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Ukupno kupljenih</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-tap-02"></i>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartBig1"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="statistike">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <button autofocus="true" class="btn btn-primary" onclick="changeForm(1);" id="button1" style="width:250px;">Ukupna statistika</button>
+                <button class="btn btn-primary" onclick="changeForm(2);" id="button2" style="width:250px;">Statistika kategorija</button>
+                <button class="btn btn-primary" onclick="changeForm(3);" id="button3" style="width:250px;">Najprodavaniji proizvodi</button>
+                <br>
+                <h2 style="margin-top:20px;" id="naslovKartice">Ukupna statistika</h2>
+              </div>
+              <div class="card-body">
+                <div id="statistikaKategorija">
+                  <div class="row" id="filterDatuma1">
+                    <div class="col-xs-12 col-sm-4">
+                      <p>Od:<span><input id="statistikaKategorijaOdDatuma" class="form-control" style="margin-left:0px;width:250px;" type="date"></span></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                      <p>Do:<span><input id="statistikaKategorijaDoDatuma" class="form-control" style="margin-left:0px;width:250px;" type="date"></span></p>
+                    </div>
+                  </div>
+                  <div class="row" id="filterKategorije1" style="margin-top:20px;">
+                    <div class="col-xs-12 col-sm-4">
+                      <input type="text" placeholder="Kategorija" class="form-control" id="kategorija1" style="margin-left:0px;" 
+                      onkeyup="filterKategorija('kategorija1','kategorije1');"
+                      onclick="oznaci(this);">
+                      <ul class="myUL" id="kategorije1" style="display:none">
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top:20px;margin-left: 10px;">
+                    <button class="btn btn-primary izvuciStatistiku" onclick="izvuciStatistiku()">Izvuci statistiku</button>
+                  </div>
+                  <div class="table-responsive" style="border-bottom:1px white solid;overflow:hidden;margin-top:30px;">
+                    <table class="table tablesorter " id="">
+                      <thead class=" text-primary">
+                        <tr>
+                          <th>
+                            Kategorija
+                          </th>
+                          <th>
+                            Broj prodanih
+                          </th>
+                          <th>
+                            Zarada
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody id="statistikaKategorijaTable">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="ukupnaStatistika">
+                  <div class="row" id="filterDatuma2">
+                    <div class="col-xs-12 col-md-4">
+                      <p>Od:<span><input id="ukupnaStatistikaOdDatuma" class="form-control"
+                            style="margin-left:0px;width:250px;" type="date"></span></p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <p>Do:<span><input id="ukupnaStatistikaDoDatuma" class="form-control"
+                            style="margin-left:0px;width:250px;" type="date"></span></p>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top:20px;margin-left: 10px;">
+                    <button class="btn btn-primary izvuciStatistiku" onclick="izvuciStatistiku()">Izvuci statistiku</button>
+                  </div>
+                  <div class="row" style="margin-top:50px;">
+                    <div class="col-12">
+                      <label style="font-size: 16px;" for="ukupnaZarada">Ukupna zarada : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;"
+                        id="ukupnaZarada"></label>
+                      <br>
+                      <br>
+                      <label style="font-size: 16px;" for="ukupanPrihod">Ukupan prihod : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;"
+                        id="ukupanPrihod"></label>
+                      <br>
+                      <label style="font-size: 16px;" for="ukupanRashod">Ukupan rashod : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;"
+                        id="ukupanRashod"></label>
+                      <br>
+                      <br>
+                      <label style="font-size: 16px;" for="rashodNabavke">Rashod nabavke : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;"
+                        id="rashodNabavke"></label>
+                      <br>
+                      <label style="font-size: 16px;" for="rashodTroskova">Rashod troškova : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;"
+                        id="rashodTroskova"></label>
+                      <br>
+                      <br>
+                      <label style="font-size: 16px;" for="ukupnoProdanih">Ukupno prodanih artikala : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;" id="ukupnoProdanih">
+                      </label>
+                      <br>
+                      <br>
+                      <label style="font-size: 16px;" for="nabavnaVrijednost">Nabavna vrijednost robe : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;" id="nabavnaVrijednost">
+                      </label>
+                      <br>
+                      <label style="font-size: 16px;" for="prodajnaVrijednost">Prodajna vrijednost robe : </label><label
+                        style="font-size: 16px;font-weight: 400;margin-left:15px;color:#FFF;" id="prodajnaVrijednost">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div id="najprodavanijiProizvodi">
+                  <div class="row" id="filterDatuma3">
+                    <div class="col-xs-12 col-sm-4">
+                      <p>Od:<span><input id="najprodavanijiProizvodiOdDatuma" class="form-control"
+                            style="margin-left:0px;width:250px;" type="date"></span></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                      <p>Do:<span><input id="najprodavanijiProizvodiDoDatuma" class="form-control"
+                            style="margin-left:0px;width:250px;" type="date"></span></p>
+                    </div>
+                  </div>
+                  <div class="row" id="filterKategorije3" style="margin-top:20px;">
+                    <div class="col-xs-12 col-sm-4">
+                      <input type="text" placeholder="Kategorija" class="form-control" id="kategorija3"
+                        style="margin-left:0px;"
+                        onclick="oznaci(this)"
+                        onkeyup="filterKategorija('kategorija3','kategorije3');">
+                      <ul class="myUL" id="kategorije3" style="display:none">
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top:20px;margin-left: 10px;">
+                    <button class="btn btn-primary izvuciStatistiku" onclick="izvuciStatistiku()">Izvuci statistiku</button>
+                  </div>
+                  <div class="table-responsive" style="margin-top:30px;border-bottom:1px white solid;overflow:hidden;">
+                    <table class="table tablesorter " id="">
+                      <thead class=" text-primary">
+                        <tr>
+                          <th>
+                            Naziv proizvoda
+                          </th>
+                          <th>
+                            Broj prodanih
+                          </th>
+                          <th>
+                            Zarada
+                          </th>
+                          <th>
+                            Ukupno prodato
+                          </th>
+                          <th>
+                            Trenutni prosjek
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody id="najprodavanijiProizvodiTable">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Total Shipments</h5>
+                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartLinePurple"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Zarada po kategorijama</h5>
+                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> €</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="CountryChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Completed Tasks</h5>
+                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartLineGreen"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                Mivex Shop
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                About Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                Blog
+              </a>
+            </li>
+          </ul>
+          <div class="copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script> made with <i class="tim-icons icon-heart-2"></i> by
+            <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../assets/scripts/statistika/dashboardChangeForm.js"></script>
+  <script src="../assets/scripts/statistika/najprodavanijiProizvodi.js"></script>
+  <script src="../assets/scripts/statistika/ukupnaStatistika.js"></script>
+  <script src="../assets/scripts/statistika/statistika.js"></script>
+  <script src="../assets/scripts/commonmivex.js"></script>
+
+
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <!--<script src="../assets/demo/demo.js"></script>-->
+  <script>
+    $(document).ready(function () {
+      $().ready(function () {
+        $sidebar = $('.sidebar');
+        $navbar = $('.navbar');
+        $main_panel = $('.main-panel');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+        sidebar_mini_active = true;
+        white_color = false;
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+        $('.fixed-plugin a').click(function (event) {
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .background-color span').click(function () {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data', new_color);
+          }
+
+          if ($main_panel.length != 0) {
+            $main_panel.attr('data', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data', new_color);
+          }
+        });
+
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+          var $btn = $(this);
+
+          if (sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            sidebar_mini_active = false;
+            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+          } else {
+            $('body').addClass('sidebar-mini');
+            sidebar_mini_active = true;
+            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function () {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function () {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+        });
+
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+          var $btn = $(this);
+
+          if (white_color == true) {
+
+            $('body').addClass('change-background');
+            setTimeout(function () {
+              $('body').removeClass('change-background');
+              $('body').removeClass('white-content');
+            }, 900);
+            white_color = false;
+          } else {
+
+            $('body').addClass('change-background');
+            setTimeout(function () {
+              $('body').removeClass('change-background');
+              $('body').addClass('white-content');
+            }, 900);
+
+            white_color = true;
+          }
+
+
+        });
+
+        $('.light-badge').click(function () {
+          $('body').addClass('white-content');
+        });
+
+        $('.dark-badge').click(function () {
+          $('body').removeClass('white-content');
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      // Javascript method's body can be found in assets/js/demos.js
+      // demo.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>

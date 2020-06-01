@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+    <link rel="stylesheet" href="../assets/css/black-dashboard.min.css">
+    <link rel="stylesheet" href="../assets/css/demo.css">
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body style="background-color:rgb(14,6,37);">
+    <div class="login-dark" style="background-color:rgb(27,29,51);">
+
+        <form id="loginForma" action="/loginValidacija" method="POST" style="background-color:rgb(30,40,51);height:35.25em; top:50vh;">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img src="../assets/img/mivex-logo.png" width="150px" height="150px" class="rubberBand animated" style="width:200px;height:200px;"></div>
+            <div class="form-group"><input class="form-control" type="username" name="username" placeholder="username" id="username"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="password" id="password"></div>
+            <div class="form-group" href="/dashboard.html"><button class="btn btn-primary btn-block" type="submit" onclick="loginValidacija()" id="loginBtn">Log In</button></div><a href="#" class="forgot">Forgot your email or password?</a></form>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../assets/scripts/login.js"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/js/demo.js"></script>
+</body>
+
+</html>

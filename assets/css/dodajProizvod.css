@@ -1,0 +1,11 @@
+.imageBox{
+    border-style:solid!important;
+    border-width:1px!important;
+    border-color:#fff!important;
+    max-width:305px;
+    max-height: 305px;
+}
+.imageBox img{
+    max-width: 300px;
+    max-height: 400px;
+}

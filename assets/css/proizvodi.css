@@ -1,0 +1,283 @@
+.myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-left:1vh;
+    border:1px;
+    border-color: #000;
+  }
+.myUL li a {
+    border: 1px solid #2b3553; /* Add a border to all links */
+    margin-top:1px;
+    width:100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color:#1d253b; /* Grey background color */
+    display: block; /* Make it into a block element to fill the whole list */
+    border-radius:5px;
+  }  
+  
+  
+.myUL li a:hover:not(.header) {
+    color:#fff;
+}
+.myUL li:focus{
+  border: 1px solid #fff;
+}
+.itemBox{
+    height:25%;
+    width:100%;
+    max-width: 200px;
+    max-height: 300px;
+    margin-right:0.5vh;
+    margin-top:1vh;
+    text-align:center;
+}
+.itemBox:hover{
+  
+    border:1px solid #5fd2fc;
+    -webkit-transition: all 250ms linear;
+  -moz-transition: all 250ms linear;
+  -o-transition: all 250ms linear;
+  -ms-transition: all 250ms linear;
+  transition: all 250ms linear;
+  cursor: pointer;
+}
+.itemBox a{
+  margin-top:10px;
+  color:#FFF;
+}
+.itemBox a:hover{
+  color:#5fd2fc;
+  -webkit-transition: all 250ms linear;
+  -moz-transition: all 250ms linear;
+  -o-transition: all 250ms linear;
+  -ms-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+  height: 100%;
+  width: 0;
+  position: absolute; /* Stay in place */
+  z-index: 1999; /* Sit on top */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.95); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-y:scroll;
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  table-layout: fixed;
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  z-index: 2000;
+  position: relative;
+  top: 5%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  /*text-align: left;*/
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  display: grid; grid-template-columns: 30% 30% 40%; float:left;
+}
+.overlay-content .form-control{
+  width:13.021vw;
+}
+/* The navigation links inside the overlay */
+.overlay a {
+  
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 2.344vw;
+  font-size: 60px;
+  z-index: 2001;
+}
+.overlay-content-item1{
+  grid-row-start:1;grid-row-end:2;
+  grid-column-start:0;grid-column: 1;
+  margin-left:4%;
+  margin-right:4%;
+  border-right:1px solid white;
+}
+.overlay-content-item2{
+  grid-row-start:1;grid-row-end:2;
+  grid-column-start:1;grid-column: 2;
+  margin-left:4%;
+  margin-right:4%;
+  border-right:1px solid white;
+}
+.overlay-content-item3{
+  grid-row-start:1;grid-row-end:2;
+  grid-column-start:2;grid-column: 3;
+  margin-left:4%;
+  margin-right:4%;
+}
+.hr{
+  border:0px;
+}
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-width: 769px) {
+  .hr{
+    border:1px solid #ffffff;
+    color:#ffffff;
+    display: block;
+  }
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+  .overlay-content{
+    display: grid; grid-template-columns: 80%; float:center;
+    width:100%;
+  }
+  .overlay-content-item1{
+    grid-row-start:1;grid-row-end:2;
+    grid-column-start:0;grid-column: 1;
+    width:100%;
+    margin-top:80px;
+    margin-right:10%;
+    margin-left:10%;
+    border-right:0px;
+    border-bottom:1px solid white;
+  }
+  .overlay-content-item2{
+    grid-row-start:2;grid-row-end:3;
+    grid-column-start:0;grid-column: 1;
+    width:100%;
+    margin-top:80px;
+    margin-right:10%;
+    margin-left:10%;
+    border-right:0px;
+    border-bottom:1px solid white;
+  }
+  .overlay-content-item3{
+    grid-row-start:4;grid-row-end:4;
+    grid-column-start:0;grid-column: 1;
+    width:100%;
+    margin-top:80px;
+    margin-right:10%;
+    margin-left:10%;
+    border-right:0px;
+  }
+  .overlay-content .form-control{
+    width:200px;
+  }
+}
+.modal {
+  position: fixed!important;
+  top: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+  left: 0!important;
+  overflow: hidden!important;
+  height:100%;
+  width:100%;
+}
+
+.modal-dialog {
+  position: absolute!important;
+  margin: 0!important;
+  width: 100%!important;
+  height: 100%!important;
+  padding: 0!important;
+}
+
+.modal-content {
+  position: absolute!important;
+  top: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+  left: 0!important;
+  border: 2px solid #3c7dcf!important;
+  border-radius: 0!important;
+  box-shadow: none!important;
+  height:auto;
+  min-height:100%;
+  width:auto;
+  min-width: 100%;
+}
+/*
+.modal-header {
+  position: absolute!important;
+  top: 0!important;
+  right: 0!important;
+  left: 0!important;
+  height: 50px!important;
+  padding: 10px!important;
+  background: #6598d9!important;
+  border: 0!important;
+}
+
+.modal-title {
+  font-weight: 300!important;
+  font-size: 2em!important;
+  color: #fff!important;
+  line-height: 30px!important;
+}
+
+.modal-body {
+  position: absolute!important;
+  top: 50px!important;
+  bottom: 60px!important;
+  width: 100%!important;
+  font-weight: 300!important;
+  overflow: auto!important;
+}
+
+.modal-footer {
+  position: absolute!important;
+  right: 0!important;
+  bottom: 0!important;
+  left: 0!important;
+  height: 60px!important;
+  padding: 10px!important;
+  background: #f1f3f5!important;
+}*/
+.modal-full{
+  min-width:100%!important;
+  margin:0!important;
+  /*display:block;*/
+}
+.modal-full .modal-content{
+  min-height:100vh!important;
+}
+#overlay{
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  padding: 45px 0 66px 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+}
+
+#box:hover #overlay {
+  opacity: 1;
+}
+
+#plus {
+  font-family: Helvetica;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 96px;
+}
